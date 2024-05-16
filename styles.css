@@ -42,14 +42,10 @@ body {
 
 /* Menu de navegação */
 #menu-bars {
+    display: none;
     font-size: 30px;
     cursor: pointer;
-    display: inline-block;
     transition: transform 0.3s;
-}
-
-#menu-bars.fa-times {
-    transform: rotate(90deg);
 }
 
 header {
@@ -60,10 +56,6 @@ header {
     padding: 10px 20px;
     align-items: center;
     transition: top 0.3s;
-}
-
-header.active {
-    top: 0;
 }
 
 header a.logo {
@@ -78,6 +70,10 @@ header a.logo span {
     color: #007bff;
 }
 
+header nav {
+    display: flex;
+}
+
 header nav a {
     font-size: 18px;
     margin-left: 20px;
@@ -87,6 +83,10 @@ header nav a {
 
 header nav a:hover {
     color: #007bff;
+}
+
+.follow {
+    display: flex;
 }
 
 .follow a {
@@ -154,11 +154,13 @@ header nav a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .sobre .image {
     flex: 1;
     padding: 20px;
+    min-width: 300px;
 }
 
 .sobre .image img {
@@ -179,7 +181,7 @@ header nav a:hover {
 .sobre .box-container {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .sobre .box {
@@ -309,104 +311,20 @@ header nav a:hover {
     color: #007bff;
 }
 
-.portifolio .box-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.portifolio .box {
+.portifolio h2 {
+    font-size: 24px;
+    color: #007bff;
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
     background: #fff;
-    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    flex: 1;
-    min-width: 250px;
-    max-width: 400px;
-    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.portifolio .box img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.portifolio .box h3 {
-    font-size: 20px;
-    color: #343a40;
-    margin-bottom: 10px;
-}
-
-.portifolio .box .icons a {
-    font-size: 16px;
-    color: #007bff;
-    text-decoration: none;
-}
-
-.portifolio .box .icons a:hover {
-    color: #0056b3;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-    }
-
-    .sobre .row-1, .sobre .box-container, .skil .box-container, .experiencia .box-container, .portifolio .box-container {
-        flex-direction: column;
-    }
-
-    .sobre .content, .sobre .image, .skil .box, .experiencia .box, .portifolio .box {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-}
-/* Menu hamburguer e ícones */
-#menu-bars {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.follow {
-    display: none;
-}
-
-/* Regras para telas menores */
-@media (max-width: 768px) {
-    #menu-bars {
-        display: inline-block;
-    }
-
-    .follow {
-        display: inline-block;
-    }
-
-    .navbar {
-        display: none;
-    }
-
-    .navbar.active {
-        display: block;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: #343a40;
-        text-align: center;
-    }
-
-    .navbar a {
-        display: block;
-        padding: 10px;
-        border-bottom: 1px solid #fff;
-    }
-}
-/* Seção Portfólio */
 .portifolio .box-container {
     display: flex;
     flex-wrap: wrap;
@@ -463,16 +381,47 @@ header nav a:hover {
 .portifolio .box:hover .description {
     display: block;
 }
-.portifolio h2 {
-    font-size: 24px;
-    color: #007bff;
-    text-align: center;
-    margin: 20px 0;
-    padding: 10px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    #menu-bars {
+        display: inline-block;
+    }
+
+    .follow {
+        display: none;
+    }
+
+    .navbar {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar.active {
+        display: flex;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: #343a40;
+    }
+
+    .navbar a {
+        display: block;
+        padding: 10px;
+        border-bottom: 1px solid #fff;
+    }
+
+    .sobre .row-1, .sobre .box-container, .skil .box-container, .experiencia .box-container, .portifolio .box-container {
+        flex-direction: column;
+    }
+
+    .sobre .content, .sobre .image, .skil .box, .experiencia .box, .portifolio .box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }
